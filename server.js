@@ -20,6 +20,7 @@ app.set("view engine", "handlebars");
 
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+console.log("connection: "+MONGODB_URI)
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 app.get("/", function (req, res) {
