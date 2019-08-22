@@ -1,0 +1,125 @@
+body {
+    font-family: "Literata";
+}
+
+#articles {
+    display: inline-block;
+    overflow: auto;
+    width: 90%;
+    height: 700px;
+
+}
+
+#notes {
+    /* display: none; */
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+textarea,
+input {
+    display: block;
+    width: 100%;
+    background: rgb(198, 198, 198);
+    color: black;
+}
+
+input {
+    height: 36px;
+    font-size: 24px;
+}
+
+textarea {
+    height: 200px;
+    font-size: 18px;
+}
+
+
+.nyt {
+    background: linear-gradient(to right, rgb(104, 104, 202), white);
+    color: rgb(255, 255, 255);
+}
+
+.btn-blue {
+    background: rgb(115, 115, 223);
+    color: rgb(255, 255, 255);
+    border: none
+}
+
+.btn-blue:hover {
+    background: rgb(86, 86, 165);
+
+}
+
+.main-content {
+    padding-left:40px;
+}
+
+#articles {
+    height: 475px;
+    overflow: scroll;
+}
+
+footer {
+    position: fixed;
+    width:100%;
+    text-align: center;
+    color:rgb(155, 81, 81);
+}
+
+
+.box {
+    display: block;
+    border:none;
+    width: 100%;
+}
+
+/* a:hover .box {
+    display: block;
+    position: relative;
+    z-index: 100;
+} */
+
+#titleinput, #bodyinput {
+    border:none;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: ghostwhite;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 2px 2px 4px lightgray;
+    border-radius:10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+#savenote {
+    border: 1px white solid;
+    background: none;
+    border-radius: 10px;
+    transition-property: border;
+    transition-duration: .5s;
+}
+#savenote:hover {
+    border: 1px black solid;
+}
+
+#placeholder {
+    display: none;
+    color:gray;
+    position: absolute;
+    left: 40%;
+    top: 230px;
+    z-index: 5;
+}
+
+
+#home {
+    color: white;
+}
+
+#home:hover {
+    color: rgb(171, 234, 255);
+    text-decoration: none;
+}

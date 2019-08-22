@@ -1,0 +1,59 @@
+{{!-- <div id="wrapper">
+    <h1>ARTICLEZZ, DAWG</h1>
+    <h2><i>new york times articles for the low...</i></h2>
+    <div id="articles">
+        {{#each articles}}
+            <p>
+                <span class="article-title" data-id="{{this._id}}">{{this.title}}</span> 
+                <a href="{{this.link}}" target="_blank">Read More</a>
+            </p>
+        {{/each}}
+    </div>
+    <div id="notes"></div>
+</div> --}}
+
+
+
+<div class="jumbotron nyt">
+    <a href="/" id="home">
+        <h1 class="display-4">The Noo York Times</h1>
+    </a>
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-6 new-content">
+            <h2>Top Articles</h2>
+            <br>
+            <div id="articles">
+                {{#each articles}}
+                <p>
+                    <span class="article-title" data-id="{{this._id}}">{{this.title}}</span>
+                    {{!-- <a href="{{this.link}}" target="_blank">Read More</a> --}}
+
+                    <a href="{{this.link}}" target="_blank">READ MORE</a>
+                    {{!-- <div class="box"><iframe src="{{this.link}}" width="100%" height="500px"></iframe></div> --}}
+                    
+
+                </p>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="notes">
+                <span id="placeholder">click on an article to add a note.</span>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        
+    </div>
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-md-12">
+            <footer>
+                <p>NO COPYRIGHT INFRINGEMENT INTENDED.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
