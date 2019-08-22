@@ -6,7 +6,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("./models");
 require("dotenv").config()
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 var app = express();
 
 
@@ -94,6 +94,6 @@ app.post("/articles/:id", function (req, res) {
 });
 
 
-app.listen(PORT, function () {
+app.listen(PORT), function () {
     console.log("App running on http://localhost:" + PORT);
 });
