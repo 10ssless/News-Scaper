@@ -4,7 +4,7 @@ $(document).ready(function(){
     method: "GET"
   }).then(function(result){
     console.log(result)
-    window.location.reload()
+    // window.location.reload()
   })
   // $("#notes").hide()
 
