@@ -1,8 +1,10 @@
 $(document).ready(function(){
+
   $.ajax("/scrape", {
     method: "GET"
   }).then(function(result){
     console.log(result)
+    window.location.reload()
   })
   // $("#notes").hide()
 
