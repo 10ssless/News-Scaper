@@ -17,9 +17,9 @@
             <div id="articles">
                 {{#each articles}}
                 <p>
-                    <span class="article-title" data-id="{{this._id}}">{{this.title}}</span>
+                    <span class="article-title" data-id="{{this._id}}"><strong>{{this.title}}</strong></span><br>
                     {{!-- <a href="{{this.link}}" target="_blank">Read More</a> --}}
-
+                    <span class="article-summary">{{this.summary}}</span>
                     <a href="{{this.link}}" target="_blank">READ MORE</a>
                     {{!-- <div class="box"><iframe src="{{this.link}}" width="100%" height="500px"></iframe></div> --}}
                     

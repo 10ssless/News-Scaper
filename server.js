@@ -50,12 +50,14 @@ app.get("/scrape", function (req, res) {
     axios.get(target).then(function (response) {
         var $ = cheerio.load(response.data);
 
-
+        let test = []
         $("article").each(function (i, element) {
             let result = {}
             result.title = $(this).find("h2")['0']['children'][0]['data'];
             result.link = target+$(this).find("a")['0'].attribs.href;
-
+            result.summary = $(this).find("p").text();
+            
+            test.push(result)
             db.Article.create(result)
                 .then(function (dbArticle) {
                     console.log(dbArticle);
@@ -64,6 +66,7 @@ app.get("/scrape", function (req, res) {
                     console.log(err);
                 });
         });
+        console.log(test)
         res.send("Scrape Complete")
     });
 });
