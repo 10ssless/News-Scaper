@@ -57,7 +57,7 @@ $(document).ready(function(){
     }, 500)
   });
 
-  
+
   $(document).on("click", "#savenote", function() {
     var thisId = $(this).attr("data-id");
 
@@ -71,8 +71,8 @@ $(document).ready(function(){
     }).then(function(data) {
         console.log(data);
         $("#notes").empty();
+        $("#titleinput").val("");
+        $("#bodyinput").val("");
       });
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
   });
 })
