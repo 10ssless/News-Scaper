@@ -1,3 +1,7 @@
+//      mLab-deployed mongoDB for heroku
+//      https://www.mlab.com/databases/heroku_h6txg0bh
+
+
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -115,3 +119,5 @@ app.post("/articles/:id", function (req, res) {
 app.listen(PORT, function () {
     console.log("App running on http://localhost:" + PORT);
 });
+
+

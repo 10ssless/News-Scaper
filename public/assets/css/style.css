@@ -1,6 +1,11 @@
-body {
-    font-family: "Literata";
+@font-face {
+    font-family: "Chomsky";
+    src: url("../fonts/Chomsky.otf");
 }
+
+/* body {
+    font-family: "Literata";
+} */
 
 #articles {
     display: inline-block;
@@ -143,4 +148,13 @@ footer {
 
 #drop-btn {
     top: 60px;
+}
+
+h1 {
+    font-family: 'Chomsky';
+}
+
+.noo-york {
+    font-size: 4.5rem;
+
 }
