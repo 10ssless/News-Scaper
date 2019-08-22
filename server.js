@@ -5,8 +5,10 @@ var exphbs = require("express-handlebars");
 var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("./models");
+require("dotenv").config()
 var PORT = 3000;
 var app = express();
+
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
