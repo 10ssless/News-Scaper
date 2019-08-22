@@ -1,17 +1,38 @@
 $(document).ready(function(){
+  let scraped = false;
+  let instructions;
+  $("#placeholder").hide()
 
-  $.ajax("/scrape", {
-    method: "GET"
-  }).then(function(result){
-    console.log(result)
-    // window.location.reload()
+  $("#scrape-btn").click(function(){
+    scraped = true
+    $.ajax("/scrape", {
+      method: "GET"
+    }).then(function(result){
+      console.log(result)
+      window.location.reload()
+      $("#scrape-btn").css("color", "lightgray")
+    })
   })
+  
+  instructions = setInterval(function () {
+    $("#placeholder").fadeToggle(1000)
+  }, 1500)
+  
+  
+  // $("#drop-btn").click(function(){
+  //   scraped = true
+  //   $.ajax("/drop", {
+  //     method: "DELETE"
+  //   }).then(function(result){
+  //     console.log(result)
+  //     window.location.reload()
+  //     // $("#scrape-btn").css("color","lightgray")
+  //   })
+  // })
+  
+  
   // $("#notes").hide()
 
-  $("#placeholder").hide()
-  let instructions = setInterval(function(){
-    $("#placeholder").fadeToggle(1000)
-  },1500)
 
   $(document).on("click", ".article-title", function() {
     clearInterval(instructions)
@@ -36,31 +57,21 @@ $(document).ready(function(){
     }, 500)
   });
 
-  // When you click the savenote button
+  
   $(document).on("click", "#savenote", function() {
-    // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
 
-    // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
       method: "POST",
       url: "/articles/" + thisId,
       data: {
-        // Value taken from title input
         title: $("#titleinput").val(),
-        // Value taken from note textarea
         body: $("#bodyinput").val()
       }
-    })
-      // With that done
-      .then(function(data) {
-        // Log the response
+    }).then(function(data) {
         console.log(data);
-        // Empty the notes section
         $("#notes").empty();
       });
-
-    // Also, remove the values entered in the input and textarea for note entry
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });

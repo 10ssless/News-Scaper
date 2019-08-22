@@ -21,13 +21,19 @@ app.set("view engine", "handlebars");
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 console.log("connection: "+MONGODB_URI)
+
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 app.get("/", function (req, res) {
     db.Article.find({}).limit(20)
         .then(function (dbArticles) {
+            let scraped = false
+            if (dbArticles.length > 0){
+                scraped = true
+            }
             res.render("index", {
-                articles: dbArticles
+                articles: dbArticles,
+                scraped: scraped
             })
         })
         .catch(function (err) {
@@ -92,6 +98,18 @@ app.post("/articles/:id", function (req, res) {
             res.json(err);
         });
 });
+
+// app.delete("/drop", function(req,res) {
+//     // mongoose.connection.db.dropCollection('Articles', function (err, result) {
+//     //     if (err) throw err.stack;
+//     //     mongoose.connection.db.dropCollection('Notes', function (err, result) {
+//     //         if(err) throw err.stack;
+//     //         console.log(result)
+//     //         res.send("Collections dropped.")
+//     //     });
+//     // });
+
+// })
 
 
 app.listen(PORT, function () {

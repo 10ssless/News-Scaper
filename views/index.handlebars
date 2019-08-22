@@ -1,16 +1,4 @@
-{{!-- <div id="wrapper">
-    <h1>ARTICLEZZ, DAWG</h1>
-    <h2><i>new york times articles for the low...</i></h2>
-    <div id="articles">
-        {{#each articles}}
-            <p>
-                <span class="article-title" data-id="{{this._id}}">{{this.title}}</span> 
-                <a href="{{this.link}}" target="_blank">Read More</a>
-            </p>
-        {{/each}}
-    </div>
-    <div id="notes"></div>
-</div> --}}
+
 
 
 
@@ -18,6 +6,8 @@
     <a href="/" id="home">
         <h1 class="display-4">The Noo York Times</h1>
     </a>
+    <button id="scrape-btn">SCRAPE</button>
+    {{!-- <button id="drop-btn">DROP</button> --}}
 </div>
 <div class="main-content">
     <div class="row">
@@ -40,7 +30,11 @@
         </div>
         <div class="col-md-4">
             <div id="notes">
-                <span id="placeholder">click on an article to add a note.</span>
+                {{#if scraped}}
+                    <span id="placeholder">click on an article to add a note.</span>
+                {{else}}
+                    <span id="placeholder">click SCRAPE to get articles</span>
+                {{/if}}
             </div>
         </div>
         <div class="col-md-2"></div>

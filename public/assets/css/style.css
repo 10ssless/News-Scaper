@@ -39,6 +39,7 @@ textarea {
 .nyt {
     background: linear-gradient(to right, rgb(104, 104, 202), white);
     color: rgb(255, 255, 255);
+    position: relative;
 }
 
 .btn-blue {
@@ -122,4 +123,24 @@ footer {
 #home:hover {
     color: rgb(171, 234, 255);
     text-decoration: none;
+}
+
+#scrape-btn,#drop-btn {
+    border: 1px transparent solid;
+    background: none;
+    border-radius: 10px;
+    color: black;
+    transition-property: border;
+    transition-duration: .5s;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+#scrape-btn:hover, #drop-btn:hover {
+    border: 1px black solid;
+}
+
+#drop-btn {
+    top: 60px;
 }
