@@ -29,7 +29,11 @@ console.log("connection: "+MONGODB_URI)
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 app.get("/", function (req, res) {
-    db.Article.find({}).limit(20)
+    db.Article.find({
+        summary: {
+            $exists: true
+        }
+    }).limit(20)
         .then(function (dbArticles) {
             let scraped = false
             if (dbArticles.length > 0){
@@ -55,7 +59,7 @@ app.get("/scrape", function (req, res) {
             let result = {}
             result.title = $(this).find("h2")['0']['children'][0]['data'];
             result.link = target+$(this).find("a")['0'].attribs.href;
-            result.summary = $(this).find("p").text();
+            result.summary = $(this).find("p").text() //|| $(this).find("li").text();
             
             test.push(result)
             db.Article.create(result)
